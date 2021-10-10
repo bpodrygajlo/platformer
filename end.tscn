@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://mytheme.tres" type="Theme" id=1]
+[ext_resource path="res://end.gd" type="Script" id=2]
+[ext_resource path="res://alagard.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "ending"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "YOU WIN !!!" ]
+}
+
+[node name="end" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 389.259
+margin_top = 251.325
+margin_right = 650.259
+margin_bottom = 299.325
+theme = ExtResource( 1 )
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "YOU WIN !!!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/ending = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

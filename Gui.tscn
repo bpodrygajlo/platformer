@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://alagard.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Gui.gd" type="Script" id=2]
+[ext_resource path="res://sprites/items/Coin.png" type="Texture" id=3]
+[ext_resource path="res://mytheme.tres" type="Theme" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.52549, 0.0117647, 0.0117647, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="Gui" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="HealthBar" type="Node2D" parent="."]
+position = Vector2( 19.7477, 38.0269 )
+
+[node name="Bar" type="ProgressBar" parent="HealthBar"]
+margin_right = 300.0
+margin_bottom = 14.0
+grow_horizontal = 0
+theme = ExtResource( 4 )
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 2 )
+max_value = 3.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthBar"]
+anchor_left = -0.000870019
+anchor_top = -0.00421237
+anchor_right = -0.000870019
+anchor_bottom = -0.00421237
+margin_left = -106.646
+margin_top = -22.9731
+margin_right = 89.3536
+margin_bottom = 38.0269
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.729412, 0.729412, 0.729412, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 29
+text = "health"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2( 916.283, 38.0269 )
+
+[node name="Sprite" type="Sprite" parent="Coins"]
+position = Vector2( 59.8554, -3.34087 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+hframes = 4
+
+[node name="Label" type="Label" parent="Coins"]
+anchor_left = -0.000870019
+anchor_top = -0.00421237
+anchor_right = -0.000870019
+anchor_bottom = -0.00421237
+margin_left = -146.188
+margin_top = -12.7728
+margin_right = 49.8112
+margin_bottom = 48.2272
+custom_fonts/font = SubResource( 3 )
+text = "300"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
